@@ -1,0 +1,12 @@
+{
+  
+  "yearsOld": "15",
+  "color": "blue",
+  "name": "abhishek",
+  "active": "true",
+  "grades": [
+    "5.0",
+    "4.5",
+    "3.6"
+  ]
+},
