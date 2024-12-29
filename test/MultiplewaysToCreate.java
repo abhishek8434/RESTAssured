@@ -22,7 +22,7 @@ public class MultiplewaysToCreate {
 		HashMap data = new HashMap();
 		String grades[] = {"5.0","4.5","3.6"};
 		
-		data.put("name", "priyansh");
+		data.put("name", "abhishek");
 		data.put("active", "true");
 		data.put("grades", grades);
 		data.put("yearsOld", "15");
@@ -37,7 +37,7 @@ public class MultiplewaysToCreate {
 		
 		.then()
 			.statusCode(201)
-			.body("name", equalTo("priyansh"))
+			.body("name", equalTo("abhishek"))
 			.body("active", equalTo("true"))
 			.body("grades[0]", equalTo("5.0"))
 			.body("grades[1]", equalTo("4.5"))
@@ -70,7 +70,7 @@ public class MultiplewaysToCreate {
 			JSONObject data = new JSONObject();
 			String grades[] = {"5.0","4.5","3.6"};
 			
-			data.put("name", "priyansh1");
+			data.put("name", "abhishek");
 			data.put("active", "true");
 			data.put("grades", grades);
 			data.put("yearsOld", "15");
@@ -85,7 +85,7 @@ public class MultiplewaysToCreate {
 			
 			.then()
 				.statusCode(201)
-				.body("name", equalTo("priyansh1"))
+				.body("name", equalTo("abhishek"))
 				.body("active", equalTo("true"))
 				.body("grades[0]", equalTo("5.0"))
 				.body("grades[1]", equalTo("4.5"))
@@ -118,7 +118,7 @@ public class MultiplewaysToCreate {
 				
 				POJO_PostRequest data = new POJO_PostRequest();
 				
-				data.setName("priyansh1");
+				data.setName("abhishek");
 				data.setActive("true");
 				data.setYearsOld("15");
 				data.setColor("pink");
@@ -135,7 +135,7 @@ public class MultiplewaysToCreate {
 				
 				.then()
 					.statusCode(201)
-					.body("name", equalTo("priyansh1"))
+					.body("name", equalTo("abhishek"))
 					.body("active", equalTo("true"))
 					.body("grades[0]", equalTo("5.0"))
 					.body("grades[1]", equalTo("4.5"))
@@ -181,7 +181,7 @@ public class MultiplewaysToCreate {
 					
 					.then()
 						.statusCode(201)
-						.body("name", equalTo("priyansh1"))
+						.body("name", equalTo("abhishek"))
 						.body("active", equalTo("true"))
 						.body("grades[0]", equalTo("5.0"))
 						.body("grades[1]", equalTo("4.5"))
