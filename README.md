@@ -108,6 +108,4 @@ public class BasicApiTest {
 
 For assistance, raise an issue in the repository or consult the REST Assured and Eclipse documentation.
 
-## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
