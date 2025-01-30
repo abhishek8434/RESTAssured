@@ -17,27 +17,27 @@ import org.json.JSONObject;
 
 import static io.restassured.RestAssured.given;
 
-public class clymbSignInDev {
+public class EncryptionAndDecryption{
 	
 
-	// Declare class-level variables to store tokens
+// Declare class-level variables to store tokens
     private String loginToken;
     private String authToken;
     private String authTokenRefresh;
-
-    //@Test(priority = 1)
+    private String baseURI = "Enter Your Url Here";
+    private String keyStr = "1234567812345678";  // 16-byte key
+    private String ivStr = "1234567812345678";   // 16-byte IV
+    
+    @Test(priority = 1)
     public void testLogin() throws Exception {
         // Base URI
-        RestAssured.baseURI = "Enter Url here";
+        RestAssured.baseURI = baseURI;
 
         // Constructing the request body dynamically using JSONObject
         JSONObject requestBody = new JSONObject();
-        requestBody.put("username", "Enter Username");
-        requestBody.put("password", "Enter Password");
+        requestBody.put("username", "bonney12@yopmail.com");
+        requestBody.put("password", "Test@123");
 
-        // Encryption logic - AES with CBC mode
-        String keyStr = "1234567812345678";  // 16-byte key
-        String ivStr = "1234567812345678";   // 16-byte IV
         String encryptedData = encryptAES(requestBody.toString(), keyStr, ivStr);
 
         // Send the encrypted data directly as the request body
@@ -66,10 +66,10 @@ public class clymbSignInDev {
         System.out.println("Extracted Token from Login: " + loginToken);
     }
 
-   // @Test(priority = 2)
+   @Test(priority = 2)
     public void testGetUserAuthDetails() throws Exception {
         // Base URI (same as before)
-        RestAssured.baseURI = "Enter Url here";
+        RestAssured.baseURI = baseURI;
 
         // Ensure token is not null or empty before proceeding
         Assert.assertNotNull(loginToken, "Token is not available. Please ensure that testLogin() runs successfully.");
@@ -108,10 +108,10 @@ public class clymbSignInDev {
         System.out.println("Stored Tokens -> authToken: " + this.authToken + ", authTokenRefresh: " + this.authTokenRefresh);
     }
 
-   // @Test(priority = 3)
+    @Test(priority = 3)
     public void testGetData() throws Exception {
         // Base URI (same as before)
-        RestAssured.baseURI = "Enter Url here";
+        RestAssured.baseURI = baseURI;
 
         // Ensure token from user auth is not null or empty before proceeding
         Assert.assertNotNull(authToken, "Authorization token is not available. Please ensure that testGetUserAuthDetails() runs successfully.");
@@ -133,10 +133,6 @@ public class clymbSignInDev {
 
         // If the response body is encrypted, decrypt it
         String encryptedResponseBody = getDataResponse.getBody().asString();
-
-        // Define your key and IV (ensure they match the encryption method used on the server)
-        String keyStr = "1234567812345678";  // 16-byte key
-        String ivStr = "1234567812345678";   // 16-byte IV
 
         // Decrypt the response
         String decryptedResponseBody = decryptAES(encryptedResponseBody, keyStr, ivStr);
@@ -166,7 +162,7 @@ public class clymbSignInDev {
         Assert.assertNotNull(studentName, "Student name is missing in the response.");
     }
     
-    @Test(priority = 4)
+    //@Test(priority = 4)
     public void loadTestAllCases() throws Exception {
         int numberOfThreads = 5;  // Simulate 5 concurrent users
 
@@ -227,3 +223,5 @@ public class clymbSignInDev {
     }
     
 }
+
+
