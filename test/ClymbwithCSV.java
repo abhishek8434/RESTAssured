@@ -23,11 +23,11 @@ import static io.restassured.RestAssured.given;
 public class ClymbwithCSV {
 
 	private String loginToken;
-    private String authToken;
-    private String authTokenRefresh; 
-    final String baseURI = "Enter Your URL here";
-    private final String keyStr = "Your Key";  // 16-byte AES key
-    private final String ivStr = "Your Key";   // 16-byte AES IV
+    	private String authToken;
+    	private String authTokenRefresh; 
+    	final String baseURI = "Enter Your URL here";
+    	private final String keyStr = "Your Key";  // 16-byte AES key
+    	private final String ivStr = "Your Key";   // 16-byte AES IV
 
     @DataProvider(name = "userData")
     public Object[][] getUserData() {
