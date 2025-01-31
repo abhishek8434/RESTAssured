@@ -25,8 +25,8 @@ public class EncryptionAndDecryption{
     private String authToken;
     private String authTokenRefresh;
     private String baseURI = "Enter Your Url Here";
-    private String keyStr = "1234567812345678";  // 16-byte key
-    private String ivStr = "1234567812345678";   // 16-byte IV
+    private String keyStr = "Your Key";   // 16-byte key
+    private String ivStr = "Your Key";    // 16-byte IV
     
     @Test(priority = 1)
     public void testLogin() throws Exception {
@@ -35,7 +35,7 @@ public class EncryptionAndDecryption{
 
         // Constructing the request body dynamically using JSONObject
         JSONObject requestBody = new JSONObject();
-        requestBody.put("username", "bonney12@yopmail.com");
+        requestBody.put("username", "sampleuser@yopmail.com");
         requestBody.put("password", "Test@123");
 
         String encryptedData = encryptAES(requestBody.toString(), keyStr, ivStr);
